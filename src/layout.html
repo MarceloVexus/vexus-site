@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESC}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <!-- Cabeçalho (definido uma vez em src/layout.html) -->
+  <header class="topo {{TOPO_MODO}}">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="assets/img/logo.png" alt="Vexus Capital | Safra Invest"></a>
+      <nav class="nav">
+        <a class="link {{a_home}}" href="/">Home</a>
+        <a class="link {{a_servicos}}" href="/servicos.html">Serviços</a>
+        <a class="link {{a_assessores}}" href="/assessores.html">Assessores</a>
+        <a class="link {{a_conteudo}}" href="/conteudo.html">Conteúdo</a>
+        <a class="link {{a_trabalhe}}" href="/trabalhe-conosco.html">Trabalhe conosco</a>
+        <a class="btn btn-{{BTN_COR}}" href="/#contato">Fale Conosco</a>
+      </nav>
+      <button class="menu-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo da página -->
+  {{CONTENT}}
+
+  <!-- Rodapé (definido uma vez em src/layout.html) -->
+  <footer class="rodape">
+    <div class="wrap">
+      <div class="rodape-grid">
+        <div>
+          <h4>Vexus Capital</h4>
+          <p>Assessoria de investimentos feita para simplificar suas decisões estratégicas.</p>
+          <div class="sociais">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <p><a href="tel:+551730426087">17 3042-6087</a></p>
+          <p><a href="mailto:contato@vexuscapital.com">contato@vexuscapital.com</a></p>
+        </div>
+        <div>
+          <h4>Ouvidoria Banco Safra</h4>
+          <p>0800 770 1236</p>
+          <p class="miudo">Atendimento aos portadores de Necessidades Especiais Auditivas e de fala: 0800 727 7555</p>
+          <p class="miudo">(Disponível de segunda à sexta-feira, das 09h às 18h, exceto feriados)</p>
+          <p style="margin-top:1rem">
+            <a href="/termos-e-condicoes.html">Termos e condições</a> &nbsp;·&nbsp;
+            <a href="/politica-de-privacidade.html">Política de privacidade</a>
+          </p>
+        </div>
+      </div>
+      <div class="base">Vexus Capital © Todos os direitos reservados</div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# dados sensíveis / internos — NUNCA publicar
+DNS-MIGRACAO.md
+_wp-capture/
+
+# sistema
+.DS_Store

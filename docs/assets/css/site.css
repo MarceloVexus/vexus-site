@@ -1,0 +1,212 @@
+/* ============================================================
+   Vexus Capital — site institucional (reconstrução fiel v2)
+   Fontes: Roboto Slab (títulos) + Roboto (corpo)  —  Google Fonts
+   Paleta real medida do site atual.
+   ============================================================ */
+:root{
+  --verde:#0C4334;        /* verde Vexus Capital (títulos)      */
+  --verde-2:#083026;      /* verde escuro (rodapé)              */
+  --marinho:#00003c;      /* azul Vexus Finance (números/Safra) */
+  --dourado:#dbb47c;      /* detalhe dourado sob os títulos     */
+  --cinza:#e9e9ef;        /* fundo claro das seções             */
+  --texto:#2b2b2b;
+  --texto-suave:#6a6a72;
+  --borda:#e2e2e8;
+  --largura:1160px;
+  --slab:"Roboto Slab",Georgia,serif;
+  --sans:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--texto);line-height:1.65;font-weight:400;background:#fff;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--largura),100% - 48px);margin-inline:auto}
+
+/* ---------- Botões: quadrados e vazados (fiel) ---------- */
+.btn{display:inline-block;padding:.85rem 2rem;font-family:var(--sans);font-size:.95rem;font-weight:400;
+  border:1px solid currentColor;border-radius:0;background:transparent;cursor:pointer;transition:.2s;letter-spacing:.3px}
+.btn-branco{color:#fff}
+.btn-branco:hover{background:#fff;color:var(--verde)}
+.btn-verde{color:var(--verde)}
+.btn-verde:hover{background:var(--verde);color:#fff}
+
+/* ---------- Títulos de seção: Roboto Slab leve + traço dourado ---------- */
+.secao-titulo{font-family:var(--slab);font-weight:300;font-size:clamp(1.9rem,3.4vw,2.5rem);
+  color:var(--verde);line-height:1.15;margin-bottom:1rem}
+.secao-titulo::after{content:"";display:block;width:56px;height:3px;background:var(--dourado);margin-top:1.1rem}
+.centro .secao-titulo{text-align:center}
+.centro .secao-titulo::after{margin-inline:auto}
+
+/* ---------- Cabeçalho (transparente sobre o hero) ---------- */
+.topo{position:absolute;top:0;left:0;right:0;z-index:20}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:1.4rem}
+.topo .logo img{height:34px;width:auto}
+.nav{display:flex;align-items:center;gap:1.7rem}
+.nav a.link{color:#fff;font-size:.95rem;font-weight:400;opacity:.95;padding-bottom:3px;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a.link:hover,.nav a.link.ativo{border-bottom-color:#fff}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+/* ---------- Cabeçalho sólido (páginas internas, sem hero) ---------- */
+.topo.solido{position:static;background:var(--verde)}
+.topo.solido .wrap{padding-block:1.1rem}
+
+/* ---------- Topo de página interna ---------- */
+.pagina-topo{background:var(--cinza);padding:3.5rem 0}
+.pagina-topo .secao-titulo{margin-bottom:.4rem}
+.pagina-topo p{color:var(--texto-suave);max-width:60ch}
+
+/* ---------- Serviços (página dedicada) ---------- */
+.svc-grupo{padding:3.5rem 0;border-bottom:1px solid var(--borda)}
+.svc-grupo:last-of-type{border-bottom:0}
+.svc-grupo h2{font-family:var(--slab);font-weight:400;color:var(--verde);font-size:1.6rem;margin-bottom:.4rem}
+.svc-grupo h2::after{content:"";display:block;width:48px;height:3px;background:var(--dourado);margin-top:.9rem}
+.svc-itens{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.4rem;margin:2rem 0 1.8rem}
+.svc-item{background:#fafafb;border:1px solid var(--borda);padding:1.8rem 1.5rem}
+.svc-item h3{font-family:var(--slab);font-weight:400;color:var(--marinho);font-size:1.12rem;line-height:1.25;margin-bottom:.7rem}
+.svc-item p{color:var(--texto-suave);font-size:.92rem}
+.svc-cta-final{text-align:center;padding:4rem 0;background:var(--cinza)}
+.svc-cta-final h2{font-family:var(--slab);font-weight:300;color:var(--verde);font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1.6rem}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(6,24,20,.55),rgba(6,24,20,.15)),url("../img/hero.webp") center/cover no-repeat}
+.hero .wrap{padding-block:7rem 3rem}
+.hero h1{font-family:var(--slab);font-weight:400;color:#fff;font-size:clamp(2rem,4.2vw,2.9rem);
+  line-height:1.25;max-width:18ch;margin-bottom:2.2rem}
+
+/* ---------- Serviços ---------- */
+.servicos{padding:5.5rem 0;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:2.5rem}
+.card{background:#fafafb;border:1px solid var(--borda);padding:2.6rem 2rem;text-align:center;transition:.2s}
+.card:hover{box-shadow:0 14px 34px rgba(12,64,52,.10);transform:translateY(-3px)}
+.card img{height:60px;width:auto;margin:0 auto 1.5rem}
+.card h3{font-family:var(--slab);font-weight:400;color:var(--verde);font-size:1.3rem;margin-bottom:1rem}
+.card p{color:var(--texto-suave);font-size:.97rem}
+
+/* ---------- Safra + Números (fundo claro, marinho) ---------- */
+.numeros{padding:4.5rem 0;background:var(--cinza);text-align:center;color:var(--marinho)}
+.safra-logo{height:66px;width:auto;margin:0 auto 2.5rem}
+.numeros-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:900px;margin:0 auto 2.8rem}
+.num{padding:.5rem 1.5rem}
+.num + .num{border-left:1px solid #c9c9d3}
+.num small{display:block;color:var(--texto-suave);font-size:.9rem;margin-bottom:.5rem}
+.num .valor{font-family:var(--slab);font-weight:700;font-size:clamp(2.4rem,5vw,3.2rem);line-height:1;color:var(--marinho)}
+.num .desc{color:var(--texto-suave);font-size:.9rem;margin-top:.5rem}
+.numeros .frase{font-family:var(--slab);font-weight:400;color:var(--marinho);font-size:clamp(1.3rem,2.5vw,1.7rem)}
+
+/* ---------- Nossa história (2 colunas) ---------- */
+.historia{padding:5.5rem 0;background:#fff}
+.historia .grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.historia p{color:var(--texto-suave);margin-bottom:1.1rem;font-size:.98rem}
+.historia img{width:100%;height:100%;object-fit:cover;max-height:520px}
+
+/* ---------- Fale com um assessor (formulário) ---------- */
+.contato{padding:5rem 0;background:var(--cinza)}
+.form-card{max-width:640px;margin:2.5rem auto 0;background:#fff;border:1px solid var(--borda);padding:2.6rem}
+.form-card label{display:block;font-size:.9rem;color:var(--texto-suave);margin-bottom:.4rem}
+.form-card input,.form-card textarea{width:100%;padding:.8rem .9rem;border:1px solid var(--borda);border-radius:0;
+  font-family:var(--sans);font-size:.97rem;margin-bottom:1.2rem;background:#fff}
+.form-card input:focus,.form-card textarea:focus{outline:2px solid var(--verde);border-color:var(--verde)}
+.form-card textarea{min-height:120px;resize:vertical}
+.form-card .btn{width:100%;background:var(--verde);color:#fff;border-color:var(--verde);padding:1rem}
+.form-card .btn:hover{background:var(--verde-2)}
+
+/* ---------- Conteúdo (blog) ---------- */
+.conteudo{padding:5.5rem 0;background:#fff}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem}
+.post{display:flex;flex-direction:column}
+.post .capa{aspect-ratio:16/10;overflow:hidden}
+.post .capa img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.post:hover .capa img{transform:scale(1.04)}
+.post h3{font-family:var(--slab);font-weight:400;color:var(--verde);font-size:1.2rem;line-height:1.3;margin:1.2rem 0 .7rem}
+.post p{color:var(--texto-suave);font-size:.92rem;margin-bottom:1rem}
+.post .saiba{color:var(--dourado);font-size:.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:auto}
+
+/* ---------- LP: hero de campanha (verde, sem imagem) ---------- */
+.lp-hero{background:var(--verde);color:#fff;padding:5rem 0}
+.lp-hero h1{font-family:var(--slab);font-weight:400;font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;max-width:20ch;margin-bottom:1.2rem}
+.lp-hero p{opacity:.9;max-width:52ch;margin-bottom:2rem;font-size:1.05rem}
+.lp-hero .btn{color:#fff;border-color:#fff}
+.lp-hero .btn:hover{background:#fff;color:var(--verde)}
+
+/* ---------- LP: cards de crédito (consórcio) ---------- */
+.creditos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem;margin-top:2.5rem}
+.credito{border:1px solid var(--borda);background:#fafafb;padding:2rem;text-align:center}
+.credito small{color:var(--texto-suave);font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+.credito .valor{font-family:var(--slab);font-weight:700;color:var(--marinho);font-size:2.2rem;line-height:1;margin:.5rem 0 1.2rem}
+.credito .parcela{color:var(--texto-suave);font-size:.9rem}
+.credito .parcela b{display:block;font-family:var(--slab);color:var(--verde);font-size:1.35rem;margin-top:.2rem}
+
+/* ---------- LP: equação de valor (menos taxa + mais segurança = Vexus) ---------- */
+.equacao{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.5rem;text-align:center}
+.equacao .termo{color:var(--verde)}
+.equacao .termo b{display:block;font-family:var(--slab);font-size:1.6rem}
+.equacao .sinal{font-family:var(--slab);font-size:2rem;color:var(--dourado)}
+.equacao .vexus{font-family:var(--slab);font-weight:700;color:var(--marinho);font-size:1.8rem}
+
+/* ---------- Citação ---------- */
+.citacao{background:var(--cinza);padding:4rem 0;text-align:center}
+.citacao blockquote{font-family:var(--slab);font-weight:300;font-style:italic;color:var(--verde);
+  font-size:clamp(1.3rem,2.6vw,1.9rem);max-width:26ch;margin:0 auto;line-height:1.35}
+
+/* ---------- FAQ (acordeão nativo) ---------- */
+.faq{max-width:760px;margin:2.5rem auto 0}
+.faq details{border-bottom:1px solid var(--borda)}
+.faq summary{cursor:pointer;padding:1.2rem 0;font-family:var(--slab);color:var(--verde);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--dourado);font-size:1.4rem;font-family:var(--slab)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--texto-suave);padding:0 0 1.3rem;font-size:.97rem}
+
+/* ---------- Time / Assessores ---------- */
+.time{padding:4.5rem 0;background:#fff;text-align:center}
+.time > .wrap > h2{font-family:var(--slab);font-weight:300;color:var(--verde);font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:2.8rem}
+.time-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));gap:2.5rem;justify-content:center}
+.membro img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;filter:grayscale(100%);transition:.3s}
+.membro:hover img{filter:grayscale(0)}
+.membro h3{font-family:var(--slab);font-weight:400;color:var(--marinho);font-size:1.15rem;margin-top:1.2rem}
+.membro .cargo{color:var(--texto-suave);font-size:.9rem;margin-top:.3rem}
+
+/* ---------- Índice do blog (placeholder p/ post sem capa) ---------- */
+.post .semcapa{aspect-ratio:16/10;background:linear-gradient(135deg,var(--verde),var(--marinho));
+  display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.post .semcapa span{font-family:var(--slab);color:#fff;opacity:.85;font-size:1.05rem;text-align:center;line-height:1.3}
+
+/* ---------- Artigo (post individual) ---------- */
+.artigo{padding:3.5rem 0 4.5rem;background:#fff}
+.artigo .col{max-width:760px;margin-inline:auto}
+.artigo .voltar{color:var(--texto-suave);font-size:.9rem}
+.artigo .voltar:hover{color:var(--verde)}
+.artigo h1{font-family:var(--slab);font-weight:400;color:var(--verde);font-size:clamp(1.8rem,3.6vw,2.6rem);
+  line-height:1.2;margin:1.2rem 0 .6rem}
+.artigo .data{color:var(--texto-suave);font-size:.9rem;margin-bottom:2rem}
+.artigo .capa-post{width:100%;max-height:420px;object-fit:cover;margin-bottom:2.2rem}
+.artigo .corpo h2{font-family:var(--slab);font-weight:400;color:var(--verde);font-size:1.45rem;margin:2rem 0 .9rem}
+.artigo .corpo h3{font-family:var(--slab);font-weight:400;color:var(--marinho);font-size:1.2rem;margin:1.6rem 0 .8rem}
+.artigo .corpo p{color:#3a3a3a;margin-bottom:1.15rem}
+.artigo .corpo ul,.artigo .corpo ol{margin:0 0 1.15rem 1.4rem;color:#3a3a3a}
+.artigo .corpo li{margin-bottom:.5rem}
+.artigo .corpo a{color:var(--verde);text-decoration:underline}
+.artigo .corpo img{margin:1.6rem 0}
+.artigo .fim-cta{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--borda)}
+
+/* ---------- Rodapé ---------- */
+.rodape{background:var(--verde-2);color:#c3d1cb;padding:4rem 0 1.6rem;font-size:.93rem}
+.rodape-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:2.5rem;margin-bottom:2.5rem}
+.rodape h4{font-family:var(--slab);color:#fff;font-size:1.05rem;margin-bottom:1rem;font-weight:400}
+.rodape p{margin-bottom:.7rem}
+.rodape a:hover{color:#fff}
+.rodape .miudo{font-size:.83rem;opacity:.7}
+.rodape .sociais{display:flex;gap:1.2rem;margin-top:1rem}
+.rodape .sociais a{color:#c3d1cb}
+.rodape .base{border-top:1px solid rgba(255,255,255,.13);padding-top:1.5rem;text-align:center;font-size:.84rem;opacity:.75}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:860px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .cards,.numeros-grid,.historia .grid,.posts,.rodape-grid{grid-template-columns:1fr}
+  .num + .num{border-left:0;border-top:1px solid #c9c9d3}
+  .hero{min-height:78vh}
+}

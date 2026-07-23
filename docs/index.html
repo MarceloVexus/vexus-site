@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vexus Capital — Assessoria de Investimentos</title>
+  <meta name="description" content="Assessoria de investimentos feita para simplificar suas decisões estratégicas. Para você, sua empresa e o agronegócio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <!-- Cabeçalho (definido uma vez em src/layout.html) -->
+  <header class="topo ">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="assets/img/logo.png" alt="Vexus Capital | Safra Invest"></a>
+      <nav class="nav">
+        <a class="link ativo" href="/">Home</a>
+        <a class="link " href="/servicos.html">Serviços</a>
+        <a class="link " href="/assessores.html">Assessores</a>
+        <a class="link " href="/conteudo.html">Conteúdo</a>
+        <a class="link " href="/trabalhe-conosco.html">Trabalhe conosco</a>
+        <a class="btn btn-branco" href="/#contato">Fale Conosco</a>
+      </nav>
+      <button class="menu-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo da página -->
+  
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Conheça a assessoria de investimentos feita para simplificar suas decisões estratégicas.</h1>
+      <a class="btn btn-branco" href="/#contato">Fale com um assessor &rsaquo;</a>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section class="servicos" id="servicos">
+    <div class="wrap">
+      <h2 class="secao-titulo">Serviços</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="assets/img/icone-2.png" alt="">
+          <h3>Para você</h3>
+          <p>Assessoria de investimentos com foco na preservação e no aumento do seu patrimônio. Um time de assessores com atendimento personalizado nas áreas de proteção, sucessão patrimonial e investimentos internacionais.</p>
+        </div>
+        <div class="card">
+          <img src="assets/img/icone-3.png" alt="">
+          <h3>Para sua empresa</h3>
+          <p>Nossas equipes trabalham em conjunto para entregar soluções de otimização de caixa, crédito, gerenciamento de câmbio e estruturação de offshore. Simplifique suas decisões estratégicas para melhorar sua eficiência financeira e segurança em suas operações.</p>
+        </div>
+        <div class="card">
+          <img src="assets/img/icone_.png" alt="">
+          <h3>Para o agronegócio</h3>
+          <p>Soluções para produtores, cooperativas e negociantes se protegerem das oscilações dos preços das commodities (boi, soja, milho, café, etanol). Para exportadores, opções de hedge cambial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safra + Números -->
+  <section class="numeros">
+    <div class="wrap">
+      <img class="safra-logo" src="assets/img/safra.png" alt="Grupo Safra">
+      <div class="numeros-grid">
+        <div class="num">
+          <small>Mais de</small>
+          <div class="valor">R$1.6</div>
+          <div class="desc">trilhão de ativos sob gestão</div>
+        </div>
+        <div class="num">
+          <small>Presente em mais de</small>
+          <div class="valor">25</div>
+          <div class="desc">Países</div>
+        </div>
+        <div class="num">
+          <small>Mais de</small>
+          <div class="valor">180</div>
+          <div class="desc">anos de história</div>
+        </div>
+      </div>
+      <p class="frase">Solidez e tradição para investir com segurança</p>
+    </div>
+  </section>
+
+  <!-- Nossa história -->
+  <section class="historia" id="sobre">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <h2 class="secao-titulo">Nossa história</h2>
+          <p>Nossa história tem suas raízes no mercado financeiro, onde atuamos por anos e identificamos oportunidades claras de melhorias no processo de gestão e atendimento dos clientes. Foi nesse contexto que surgiu a Vexus Capital, movida pela paixão em transformar a forma como o setor funciona.</p>
+          <p>Estamos comprometidos em trazer inovação e excelência para o mercado. Nossa equipe, com experiência sólida no setor financeiro, entende as necessidades dos investidores e está determinada a fornecer soluções que impulsionem seu sucesso.</p>
+          <p>Nossa visão é revolucionar a gestão e o atendimento para nossos clientes, oferecendo soluções inovadoras e personalizadas. Estamos empenhados em entregar conhecimento e economia de tempo, que permitam aos nossos clientes gerir seus investimentos com maior eficácia, segurança e tranquilidade.</p>
+          <p>A Vexus Capital está pronta para caminhar ao seu lado nessa trajetória. Junte-se a nós e descubra como podemos te ajudar a simplificar suas decisões estratégicas dos seus investimentos, abrindo caminho para alcançar novos objetivos.</p>
+        </div>
+        <div>
+          <img src="assets/img/historia.png" alt="Análise do mercado financeiro">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fale com um assessor (formulário) -->
+  <section class="contato centro" id="contato">
+    <div class="wrap">
+      <h2 class="secao-titulo">Fale com um assessor</h2>
+      <!-- TODO: este formulário será ligado ao CRM da plataforma (o lead cai no funil) -->
+      <form class="form-card" method="post" action="#">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem"></textarea>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Conteúdo (blog) -->
+  <section class="conteudo" id="conteudo">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+        <h2 class="secao-titulo">Conteúdo</h2>
+        <a class="btn btn-verde" href="/conteudo.html" style="margin-bottom:1rem">Ver todos</a>
+      </div>
+      <div class="posts">
+        <article class="post">
+          <a class="capa" href="/impactos-do-cenario-geopolitico-atual-nas-financas-globais.html"><img src="assets/img/blog/impactos-do-cenario-geopolitico-atual-nas-financas-globais.jpg" alt=""></a>
+          <h3><a href="/impactos-do-cenario-geopolitico-atual-nas-financas-globais.html">Impactos do Cenário Geopolítico Atual nas Finanças Globais</a></h3>
+          <p>Vivemos em um mundo no qual, por influência de fatores...</p>
+          <a class="saiba" href="/impactos-do-cenario-geopolitico-atual-nas-financas-globais.html">Saiba mais</a>
+        </article>
+        <article class="post">
+          <a class="capa" href="/dicas-de-investimento-e-melhores-habitos-no-mercado-financeiro.html"><img src="assets/img/blog/dicas-de-investimento-e-melhores-habitos-no-mercado-financeiro.webp" alt=""></a>
+          <h3><a href="/dicas-de-investimento-e-melhores-habitos-no-mercado-financeiro.html">Dicas de Investimento e Melhores Hábitos no Mercado Financeiro</a></h3>
+          <p>O sucesso no mercado financeiro não é fruto do acaso...</p>
+          <a class="saiba" href="/dicas-de-investimento-e-melhores-habitos-no-mercado-financeiro.html">Saiba mais</a>
+        </article>
+        <article class="post">
+          <a class="capa" href="/offshore-o-que-e-e-para-que-serve.html"><img src="assets/img/blog/offshore-o-que-e-e-para-que-serve.jpg" alt=""></a>
+          <h3><a href="/offshore-o-que-e-e-para-que-serve.html">Offshore: O que é, para que serve e como pode proteger seu patrimônio</a></h3>
+          <p>Introdução — No mundo globalizado e cada vez mais conectado...</p>
+          <a class="saiba" href="/offshore-o-que-e-e-para-que-serve.html">Saiba mais</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Rodapé (definido uma vez em src/layout.html) -->
+  <footer class="rodape">
+    <div class="wrap">
+      <div class="rodape-grid">
+        <div>
+          <h4>Vexus Capital</h4>
+          <p>Assessoria de investimentos feita para simplificar suas decisões estratégicas.</p>
+          <div class="sociais">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <p><a href="tel:+551730426087">17 3042-6087</a></p>
+          <p><a href="mailto:contato@vexuscapital.com">contato@vexuscapital.com</a></p>
+        </div>
+        <div>
+          <h4>Ouvidoria Banco Safra</h4>
+          <p>0800 770 1236</p>
+          <p class="miudo">Atendimento aos portadores de Necessidades Especiais Auditivas e de fala: 0800 727 7555</p>
+          <p class="miudo">(Disponível de segunda à sexta-feira, das 09h às 18h, exceto feriados)</p>
+          <p style="margin-top:1rem">
+            <a href="/termos-e-condicoes.html">Termos e condições</a> &nbsp;·&nbsp;
+            <a href="/politica-de-privacidade.html">Política de privacidade</a>
+          </p>
+        </div>
+      </div>
+      <div class="base">Vexus Capital © Todos os direitos reservados</div>
+    </div>
+  </footer>
+
+</body>
+</html>

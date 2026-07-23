@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consórcio Imobiliário — Vexus Capital</title>
+  <meta name="description" content="Consórcio imobiliário para quem busca uma nova fonte de investimentos ou o sonho da casa própria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <!-- Cabeçalho (definido uma vez em src/layout.html) -->
+  <header class="topo solido">
+    <div class="wrap">
+      <a class="logo" href="/"><img src="assets/img/logo.png" alt="Vexus Capital | Safra Invest"></a>
+      <nav class="nav">
+        <a class="link " href="/">Home</a>
+        <a class="link " href="/servicos.html">Serviços</a>
+        <a class="link " href="/assessores.html">Assessores</a>
+        <a class="link " href="/conteudo.html">Conteúdo</a>
+        <a class="link " href="/trabalhe-conosco.html">Trabalhe conosco</a>
+        <a class="btn btn-branco" href="/#contato">Fale Conosco</a>
+      </nav>
+      <button class="menu-btn" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo da página -->
+  
+
+  <!-- Hero da LP -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <h1>Consórcio Imobiliário</h1>
+      <p>Imóveis para quem busca uma nova fonte de investimentos ou o sonho da casa própria!</p>
+      <a class="btn" href="#form">Tenho interesse &rsaquo;</a>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section class="contato centro" id="form">
+    <div class="wrap">
+      <h2 class="secao-titulo">O seu consórcio a poucos cliques!</h2>
+      <p style="max-width:56ch;margin:0 auto 1rem;color:var(--texto-suave)">Nos conte um pouco mais sobre seus planos para adquirir seu bem e alguém do nosso time de especialistas vai entrar em contato pra te ajudar a realizar!</p>
+      <!-- TODO: ligar ao CRM da plataforma (lead do consórcio no funil) -->
+      <form class="form-card" method="post" action="#">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone">
+        <label for="valor">Valor do imóvel pretendido</label>
+        <input type="text" id="valor" name="valor" placeholder="Ex.: R$ 300.000">
+        <button class="btn" type="submit">Quero uma simulação</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="servicos">
+    <div class="wrap">
+      <h2 class="secao-titulo">Valores</h2>
+      <p style="color:var(--texto-suave)">Todo tipo de imóvel para todo tipo de finalidade e bolso!</p>
+      <div class="creditos">
+        <div class="credito">
+          <small>Crédito de</small>
+          <div class="valor">R$ 408 mil</div>
+          <div class="parcela">Parcela inicial de até <b>R$ 1.113,23</b></div>
+        </div>
+        <div class="credito">
+          <small>Crédito de</small>
+          <div class="valor">R$ 333 mil</div>
+          <div class="parcela">Parcela inicial de até <b>R$ 820,62</b></div>
+        </div>
+        <div class="credito">
+          <small>Crédito de</small>
+          <div class="valor">R$ 156 mil</div>
+          <div class="parcela">Parcela inicial de até <b>R$ 424,20</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valor: menos taxa + mais segurança = Vexus -->
+  <section class="numeros">
+    <div class="wrap">
+      <h2 class="secao-titulo centro" style="text-align:center">O imóvel ideal a um clique de você!</h2>
+      <p class="frase" style="margin-bottom:1rem">Comece seu investimento com parcelas que cabem em qualquer bolso.</p>
+      <div class="equacao">
+        <div class="termo">menos<b>Taxa</b></div>
+        <span class="sinal">+</span>
+        <div class="termo">mais<b>Segurança</b></div>
+        <span class="sinal">=</span>
+        <span class="vexus">VEXUS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="svc-cta-final">
+    <div class="wrap">
+      <h2>Pronto para dar o primeiro passo?</h2>
+      <a class="btn btn-verde" href="#form">Tenho interesse &rsaquo;</a>
+    </div>
+  </section>
+
+
+  <!-- Rodapé (definido uma vez em src/layout.html) -->
+  <footer class="rodape">
+    <div class="wrap">
+      <div class="rodape-grid">
+        <div>
+          <h4>Vexus Capital</h4>
+          <p>Assessoria de investimentos feita para simplificar suas decisões estratégicas.</p>
+          <div class="sociais">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <p><a href="tel:+551730426087">17 3042-6087</a></p>
+          <p><a href="mailto:contato@vexuscapital.com">contato@vexuscapital.com</a></p>
+        </div>
+        <div>
+          <h4>Ouvidoria Banco Safra</h4>
+          <p>0800 770 1236</p>
+          <p class="miudo">Atendimento aos portadores de Necessidades Especiais Auditivas e de fala: 0800 727 7555</p>
+          <p class="miudo">(Disponível de segunda à sexta-feira, das 09h às 18h, exceto feriados)</p>
+          <p style="margin-top:1rem">
+            <a href="/termos-e-condicoes.html">Termos e condições</a> &nbsp;·&nbsp;
+            <a href="/politica-de-privacidade.html">Política de privacidade</a>
+          </p>
+        </div>
+      </div>
+      <div class="base">Vexus Capital © Todos os direitos reservados</div>
+    </div>
+  </footer>
+
+</body>
+</html>
