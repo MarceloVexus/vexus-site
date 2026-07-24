@@ -129,6 +129,10 @@ def main():
         left = set(re.findall(r"\{\{[^}]+\}\}", open(f, encoding="utf-8").read()))
         if left:
             faltas += 1; print(f"  AVISO {os.path.basename(f)}: {left}")
+    # domínio próprio (GitHub Pages) + desligar Jekyll — sempre presentes
+    open(os.path.join(OUT, "CNAME"), "w").write("vexuscapital.com.br\n")
+    open(os.path.join(OUT, ".nojekyll"), "w").write("")
+    print("Domínio: CNAME=vexuscapital.com.br + .nojekyll")
     print("OK — tudo resolvido." if not faltas else f"{faltas} arquivo(s) com pendência.")
 
 if __name__ == "__main__":
