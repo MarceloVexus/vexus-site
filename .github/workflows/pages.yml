@@ -1,0 +1,47 @@
+# PUBLICA O SITE SOZINHO, a cada commit no `main` (18/08/2026).
+#
+# Ele: *"consegue pôr o site sozinho no ar hoje?"*. Ligar o GitHub Pages pela tela exige o
+# login dele; por aqui não: o `configure-pages` com `enablement: true` liga o Pages usando o
+# token do próprio fluxo. Assim o site sobe sem ninguém abrir o navegador.
+#
+# O que ele publica é a pasta `docs/`, que é a saída do `build.py`. E ele RODA o build antes,
+# para o que está no ar ser sempre o que o gerador produz — não uma pasta que alguém esqueceu
+# de atualizar.
+name: Publicar o site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # e dá para disparar à mão pelo GitHub
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:              # um deploy por vez; o mais novo vence
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Gerar as páginas
+        run: python build.py
+      - name: Ligar o Pages (se ainda não estiver)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -129,10 +129,24 @@ def main():
         left = set(re.findall(r"\{\{[^}]+\}\}", open(f, encoding="utf-8").read()))
         if left:
             faltas += 1; print(f"  AVISO {os.path.basename(f)}: {left}")
-    # domínio próprio (GitHub Pages) + desligar Jekyll — sempre presentes
-    open(os.path.join(OUT, "CNAME"), "w").write("vexuscapital.com.br\n")
+    # ⚠ O CNAME SÓ ENTRA QUANDO O DNS JÁ APONTA (18/08/2026). Com o arquivo `CNAME`
+    # presente, o GitHub Pages serve o site SÓ no domínio próprio — e enquanto o
+    # `vexuscapital.com.br` não tiver registro (hoje ele só tem MX, o site saiu do ar depois
+    # de 23/07), o endereço de prévia `marcelovexus.github.io/vexus-site` também para de
+    # responder. Ou seja: publicar com CNAME antes do DNS deixa o site inalcançável nos dois
+    # endereços, que é o oposto de subir.
+    #
+    # `VEXUS_DOMINIO_PROPRIO=1` liga o domínio quando o DNS estiver pronto (é o passo 5 do
+    # DNS-MIGRACAO.md). Sem a variável, o site vive no endereço do GitHub e dá para ver.
+    if os.environ.get("VEXUS_DOMINIO_PROPRIO") == "1":
+        open(os.path.join(OUT, "CNAME"), "w").write("vexuscapital.com.br\n")
+        print("Domínio: CNAME=vexuscapital.com.br + .nojekyll")
+    else:
+        _cn = os.path.join(OUT, "CNAME")
+        if os.path.exists(_cn):
+            os.remove(_cn)
+        print("Domínio: endereço do GitHub (sem CNAME) — ligue com VEXUS_DOMINIO_PROPRIO=1")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
-    print("Domínio: CNAME=vexuscapital.com.br + .nojekyll")
     print("OK — tudo resolvido." if not faltas else f"{faltas} arquivo(s) com pendência.")
 
 if __name__ == "__main__":
