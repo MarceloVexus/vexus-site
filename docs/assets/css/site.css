@@ -439,6 +439,11 @@ a{color:inherit;text-decoration:none}
 }
 
 /* Rodapé enxuto: só a marca, centrada e discreta (26/08/2026). */
-.rodape-limpo{padding:44px 0}
-.rodape-limpo .wrap{display:flex;justify-content:center}
+.rodape-limpo{padding:40px 0 32px}
+.rodape-limpo .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
 .rodape-limpo .rodape-logo{height:24px;width:auto;margin:0;opacity:.9}
+/* a linha do miudinho: presente porque precisa estar, discreta porque nao e o assunto */
+.rodape-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  font-size:.72rem;letter-spacing:.02em;color:rgba(255,255,255,.42);text-align:center}
+.rodape-legal a{color:rgba(255,255,255,.42);transition:color .2s ease}
+.rodape-legal a:hover{color:rgba(255,255,255,.8)}
