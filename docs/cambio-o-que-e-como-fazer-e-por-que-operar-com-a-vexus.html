@@ -7,7 +7,7 @@
   <meta name="description" content="Introdução No mundo globalizado em que vivemos, o câmbio tornou-se uma operação cada vez mais presente no dia a dia de empresas e pessoas físicas. Seja para fec">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Roboto+Slab:wght@200;300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -17,12 +17,11 @@
     <div class="wrap">
       <a class="logo" href="/"><img src="assets/img/logo.png" alt="Vexus Capital | Safra Invest"></a>
       <nav class="nav">
-        <a class="link " href="/">Home</a>
         <a class="link " href="/servicos.html">Serviços</a>
         <a class="link " href="/assessores.html">Assessores</a>
         <a class="link ativo" href="/conteudo.html">Conteúdo</a>
-        <a class="link " href="/trabalhe-conosco.html">Trabalhe conosco</a>
-        <a class="btn btn-branco" href="/#contato">Fale Conosco</a>
+        <a class="link " href="/trabalhe-conosco.html">Carreira</a>
+        <a class="btn btn-ghost" href="/#contato">Fale com um assessor</a>
       </nav>
       <button class="menu-btn" aria-label="Menu">&#9776;</button>
     </div>
@@ -95,25 +94,24 @@
     <div class="wrap">
       <div class="rodape-grid">
         <div>
-          <h4>Vexus Capital</h4>
+          <img class="rodape-logo" src="assets/img/logo.png" alt="Vexus Capital | Safra Invest">
           <p>Assessoria de investimentos feita para simplificar suas decisões estratégicas.</p>
           <div class="sociais">
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="WhatsApp">WhatsApp</a>
             <a href="#" aria-label="Instagram">Instagram</a>
             <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
           </div>
         </div>
         <div>
           <h4>Contato</h4>
           <p><a href="tel:+551730426087">17 3042-6087</a></p>
           <p><a href="mailto:contato@vexuscapital.com">contato@vexuscapital.com</a></p>
+          <p>São José do Rio Preto · SP</p>
         </div>
         <div>
           <h4>Ouvidoria Banco Safra</h4>
           <p>0800 770 1236</p>
-          <p class="miudo">Atendimento aos portadores de Necessidades Especiais Auditivas e de fala: 0800 727 7555</p>
-          <p class="miudo">(Disponível de segunda à sexta-feira, das 09h às 18h, exceto feriados)</p>
+          <p class="miudo">Necessidades Especiais Auditivas e de fala: 0800 727 7555. De segunda à sexta, das 09h às 18h, exceto feriados.</p>
           <p style="margin-top:1rem">
             <a href="/termos-e-condicoes.html">Termos e condições</a> &nbsp;·&nbsp;
             <a href="/politica-de-privacidade.html">Política de privacidade</a>
@@ -123,6 +121,50 @@
       <div class="base">Vexus Capital © Todos os direitos reservados</div>
     </div>
   </footer>
+
+  <script>
+  /* Revelação ao entrar na tela. Três cintos, na mesma ordem do mock aprovado:
+     quem já está visível aparece de imediato, o observador cuida do resto, e um
+     temporizador garante que nada fique invisível se o observador falhar. */
+  (function () {
+    var alvos = function () {
+      return Array.prototype.slice.call(
+        document.querySelectorAll('[data-in]:not(.vis),[data-rule]:not(.vis)'));
+    };
+    var revelar = function (el) {
+      if (el.classList.contains('vis')) return;
+      var irmaos = Array.prototype.filter.call(
+        el.parentElement ? el.parentElement.children : [],
+        function (n) { return n.hasAttribute('data-in'); });
+      el.style.animationDelay = (Math.max(0, irmaos.indexOf(el)) * 90) + 'ms';
+      el.classList.add('vis');
+    };
+    var varrer = function () {
+      alvos().forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) revelar(el);
+      });
+    };
+    varrer();
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) {
+          if (e.isIntersecting) { revelar(e.target); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      alvos().forEach(function (el) { io.observe(el); });
+    }
+    document.addEventListener('scroll', varrer, true);
+    window.addEventListener('resize', varrer);
+    setTimeout(varrer, 600);
+    setTimeout(function () { alvos().forEach(revelar); }, 4000);
+  }());
+
+  /* O menu de celular: o mesmo <nav>, aberto por classe. */
+  (function () {
+    var b = document.querySelector('.menu-btn'), n = document.querySelector('.nav');
+    if (b && n) b.addEventListener('click', function () { n.classList.toggle('aberto'); });
+  }());
+  </script>
 
 </body>
 </html>

@@ -14,7 +14,16 @@
   --borda:#e2e2e8;
   --largura:1160px;
   --slab:"Roboto Slab",Georgia,serif;
-  --sans:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --sans:"Inter",-apple-system,"Segoe UI",Arial,sans-serif;
+  /* ---- mock "home 1B v3" (aprovado por ele em 26/08/2026) ---- */
+  --bege:#F6F3EE;         /* fundo das seções alternadas        */
+  --bege-2:#FBF9F6;       /* o bege mais claro, dos cards       */
+  --ouro:#A8834E;         /* dourado escuro, de texto           */
+  --verde-fundo:#08281F;  /* o véu sobre a foto                 */
+  --tinta:#1E241F;
+  --tinta-2:#5C6360;
+  --tinta-3:#8A8F8B;
+  --linha:rgba(12,67,52,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -209,4 +218,190 @@ a{color:inherit;text-decoration:none}
   .cards,.numeros-grid,.historia .grid,.posts,.rodape-grid{grid-template-columns:1fr}
   .num + .num{border-left:0;border-top:1px solid #c9c9d3}
   .hero{min-height:78vh}
+}
+
+/* ==========================================================================
+   HOME "1B v3" — o mock que ele aprovou em 26/08/2026
+   O topo deixa de ser barra sobre a foto e passa a conviver com o véu verde;
+   o resto são as seções novas. Nada aqui reescreve o que as páginas internas
+   já usavam: só acrescenta.
+   ========================================================================== */
+
+/* ---------- animação de entrada (o JS do layout põe .vis) ---------- */
+@keyframes vx-kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes vx-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes vx-rule{from{width:0}to{width:64px}}
+[data-in]{opacity:0}
+[data-in].vis{opacity:1;animation:vx-up .7s cubic-bezier(.22,.7,.3,1) both}
+[data-rule]{width:0}
+[data-rule].vis{animation:vx-rule .9s .25s cubic-bezier(.22,.7,.3,1) both;width:64px}
+@media (prefers-reduced-motion:reduce){
+  [data-in],[data-in].vis,[data-rule].vis{opacity:1;animation:none;width:64px}
+}
+
+/* ---------- topo ---------- */
+.topo .nav a.link{font-size:.85rem;letter-spacing:.02em;opacity:.85;border-bottom:0;position:relative}
+.topo .nav a.link::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;
+  background:var(--dourado);transition:right .3s cubic-bezier(.22,.7,.3,1)}
+.topo .nav a.link:hover::after,.topo .nav a.link.ativo::after{right:0}
+.topo .nav a.link:hover{opacity:1;color:#fff}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);padding:.75rem 1.5rem;font-size:.85rem}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-ouro{background:var(--dourado);color:var(--verde-fundo);border-color:var(--dourado);font-weight:500}
+.btn-ouro:hover{background:#c9a068;color:var(--verde-fundo)}
+.btn-verde-linha{color:var(--verde);border-color:var(--verde);white-space:nowrap}
+.btn-verde-linha:hover{background:var(--verde);color:#fff}
+.btn{transition:background-color .22s ease,color .22s ease,border-color .22s ease,transform .22s ease}
+.btn:hover{transform:translateY(-1px)}
+
+/* ---------- hero ---------- */
+.hero-v3{position:relative;min-height:760px;height:88vh;display:block;overflow:hidden;background:var(--verde-fundo)}
+.hero-v3 .hero-img{position:absolute;inset:0;background:url('../img/hero.webp') center 42%/cover no-repeat;
+  animation:vx-kb 26s ease-out forwards}
+.hero-v3 .hero-veu{position:absolute;inset:0;
+  background:linear-gradient(96deg,rgba(8,40,31,.9) 0%,rgba(10,48,37,.72) 46%,rgba(12,67,52,.28) 100%)}
+.hero-txt{position:absolute;left:0;right:0;bottom:100px;width:min(var(--largura),100% - 48px);
+  margin-inline:auto;max-width:900px}
+.hero-txt h1{font-family:var(--slab);font-weight:200;font-size:clamp(2rem,4.4vw,3.5rem);line-height:1.16;
+  color:#fff;margin:0;max-width:22ch;letter-spacing:-.01em}
+.olho{font-size:.7rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--dourado);margin-bottom:1.75rem}
+.olho.ouro{color:var(--ouro);margin-bottom:1.4rem}
+.olho.ouro-claro{color:var(--dourado);margin-bottom:1.4rem}
+.risco-ouro{height:1px;width:64px;background:var(--dourado);margin:2.4rem 0 2.1rem}
+.risco-ouro.largo{width:100%;background:var(--ouro);margin:0 0 3.5rem}
+.hero-acoes{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+
+/* ---------- faixa do Safra ---------- */
+.faixa-safra{background:var(--bege-2);padding:3.5rem 0;border-bottom:1px solid rgba(12,67,52,.12)}
+.safra-linha{display:flex;align-items:center;gap:3.5rem;flex-wrap:wrap}
+.safra-marca{height:46px;width:auto;flex:none}
+.safra-nums{display:grid;grid-template-columns:repeat(3,minmax(130px,1fr));flex:1;gap:0}
+.safra-num{padding-right:2.25rem}
+.safra-num.col{padding:0 2.25rem;border-left:1px solid var(--linha)}
+.safra-num.col:last-child{padding-right:0}
+.safra-num-v{font-family:var(--slab);font-weight:300;font-size:2.4rem;line-height:1;color:var(--marinho);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.safra-num-r{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-3);
+  margin-top:.75rem;white-space:nowrap}
+.safra-frase{flex:none;font-family:var(--slab);font-weight:300;font-size:1rem;color:var(--ouro);
+  max-width:20ch;line-height:1.45}
+
+/* ---------- seções ---------- */
+.secao{padding:6rem 0}
+.secao.bege{background:var(--bege)}
+.secao.clara{background:var(--bege-2)}
+.secao h2{font-family:var(--slab);font-weight:200;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;
+  color:var(--verde);margin:0;max-width:20ch}
+.secao-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:2.5rem;flex-wrap:wrap;
+  margin-bottom:1.25rem}
+.secao-topo.mb{margin-bottom:2.75rem}
+.seta{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--verde);padding-bottom:6px;
+  transition:gap .22s ease,color .22s ease}
+.seta:hover{gap:13px;color:var(--ouro)}
+.grade-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grade-2{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:start}
+
+/* três frentes */
+.frente{padding-right:2.75rem}
+.frente.col{padding:0 2.75rem;border-left:1px solid var(--linha)}
+.frente.col:last-child{padding-right:0}
+.ord{font-family:var(--slab);font-size:.75rem;letter-spacing:.16em;color:var(--ouro);margin-bottom:1.4rem}
+.frente-tit{font-family:var(--slab);font-weight:300;font-size:1.6rem;color:var(--verde);margin-bottom:1rem}
+.frente p{margin:0 0 1.5rem;font-size:.94rem;line-height:1.7;color:var(--tinta-2)}
+.lista{font-size:.82rem;letter-spacing:.03em;color:var(--tinta-3);line-height:2.1}
+
+/* citação sobre a foto */
+.citacao{position:relative;height:400px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  padding:0 24px;background:var(--verde-fundo)}
+.citacao .hero-img{position:absolute;inset:0;background:url('../img/hero.webp') center 62%/cover no-repeat;
+  animation:vx-kb 26s ease-out forwards}
+.cit-veu{position:absolute;inset:0;background:rgba(8,40,31,.78)}
+.citacao blockquote{position:relative;margin:0;font-family:var(--slab);font-weight:200;
+  font-size:clamp(1.4rem,2.8vw,2.1rem);line-height:1.42;color:#fff;text-align:center;max-width:30ch}
+
+/* quatro passos */
+.passo{display:flex;gap:1.75rem;padding:1.4rem 0;border-top:1px solid var(--linha);
+  transition:background-color .25s ease,padding-left .25s ease}
+.passo:hover{background:rgba(12,67,52,.035);padding-left:10px}
+.passo.fim{border-bottom:1px solid var(--linha)}
+.passo .ord{width:26px;flex:none;margin-bottom:0;font-size:.72rem;letter-spacing:.14em}
+.passo-txt{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:baseline}
+.passo-txt b{font-family:var(--slab);font-weight:400;font-size:1.15rem;color:var(--verde);min-width:230px}
+.passo-txt span{font-size:.9rem;color:var(--tinta-2)}
+
+/* cards de conteúdo */
+.grade-3.cartoes{gap:2.25rem}
+.cartao{background:var(--bege-2);display:block;
+  transition:transform .25s ease,box-shadow .25s ease}
+.cartao:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(12,67,52,.45)}
+.cartao-img{overflow:hidden}
+.cartao-img img{width:100%;height:230px;object-fit:cover;transition:transform .6s cubic-bezier(.22,.7,.3,1)}
+.cartao:hover .cartao-img img{transform:scale(1.05)}
+.cartao-txt{padding:1.5rem 1.5rem 1.9rem}
+.tag{font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);
+  margin-bottom:.75rem}
+.cartao-tit{font-family:var(--slab);font-weight:300;font-size:1.3rem;line-height:1.34;color:var(--verde);
+  transition:color .25s ease}
+.cartao:hover .cartao-tit{color:var(--ouro)}
+
+/* contato */
+.contato-v3{background:var(--verde);padding:5.5rem 0}
+.contato-v3 .grade-2{grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
+.contato-v3 h2.branco{color:#fff;margin-bottom:1.25rem;max-width:22ch}
+.contato-v3 .sub{margin:0;font-size:.97rem;line-height:1.75;color:rgba(255,255,255,.72);max-width:42ch}
+.contato-dados{margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(219,180,124,.3);
+  font-family:var(--slab);font-weight:300;font-size:1.35rem;color:#fff;line-height:1.7}
+.contato-dados a{color:#fff}
+.contato-dados span{display:block;font-size:1rem;color:rgba(255,255,255,.7);font-family:var(--sans)}
+.contato-dados span a{color:rgba(255,255,255,.7)}
+.contato-dados a:hover{color:var(--dourado)}
+.form-v3{display:flex;flex-direction:column;gap:1.4rem}
+.form-v3 label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);
+  display:flex;flex-direction:column;gap:.6rem}
+.form-v3 input{height:44px;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.28);
+  color:#fff;font-family:var(--sans);font-size:1rem;padding:0 2px}
+.form-v3 input:focus{outline:0;border-bottom-color:var(--dourado)}
+.form-v3 .btn{margin-top:.6rem;height:50px;display:inline-flex;align-items:center;justify-content:center}
+
+/* carreira */
+.carreira{background:var(--bege-2);padding:3.25rem 0;border-bottom:1px solid rgba(12,67,52,.12)}
+.carreira-linha{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.carreira-txt{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
+.carreira-txt .olho{margin-bottom:0}
+.carreira-tit{font-family:var(--slab);font-weight:300;font-size:1.5rem;color:var(--verde)}
+
+/* rodapé: a marca no lugar do nome escrito */
+.rodape-logo{height:24px;width:auto;margin-bottom:1.25rem}
+
+/* ---------- o que muda em tela estreita ---------- */
+@media (max-width:1240px){
+  .safra-frase{flex:1 0 100%;max-width:none;padding-top:8px}
+}
+@media (max-width:900px){
+  .grade-3,.grade-2,.contato-v3 .grade-2{grid-template-columns:1fr;gap:2.5rem}
+  .frente.col,.safra-num.col{border-left:0;border-top:1px solid var(--linha);padding:1.75rem 0 0 0}
+  .frente,.safra-num{padding-right:0}
+  .hero-v3{height:82vh;min-height:560px}
+  .hero-txt{bottom:64px}
+  .passo-txt b{min-width:0}
+  .safra-nums{grid-template-columns:1fr}
+}
+
+/* No celular a marca não pode competir com o título: some com o menu e encolhe. */
+@media (max-width:1050px){
+  .nav{display:none;position:absolute;top:100%;right:24px;left:24px;background:var(--verde);
+    flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 1.25rem 1.25rem}
+  .nav.aberto{display:flex}
+  .nav a.link{padding:.7rem 0;font-size:.95rem;opacity:1}
+  .nav .btn{margin-top:.6rem;align-self:stretch;text-align:center}
+  .menu-btn{display:block}
+  .topo .logo img{height:26px}
+  .topo .wrap{position:relative}
+}
+@media (max-width:560px){
+  .topo .logo img{height:22px}
+  .hero-txt h1{font-size:1.85rem}
+  .secao{padding:4rem 0}
+  .contato-v3 .grade-2{gap:2.5rem}
 }
