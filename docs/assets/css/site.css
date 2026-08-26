@@ -447,3 +447,46 @@ a{color:inherit;text-decoration:none}
   font-size:.72rem;letter-spacing:.02em;color:rgba(255,255,255,.42);text-align:center}
 .rodape-legal a{color:rgba(255,255,255,.42);transition:color .2s ease}
 .rodape-legal a:hover{color:rgba(255,255,255,.8)}
+
+/* ==========================================================================
+   PÁGINAS INTERNAS no padrão do mock 1B v3 (26/08/2026)
+   Elas já tinham o cabeçalho e o rodapé novos, mas o miolo continuava no
+   estilo antigo: fundo cinza-azulado, cartão com borda dura e traço dourado
+   grosso. Aqui o miolo passa a falar a mesma língua da home, sem reescrever
+   o HTML de cada página.
+   ========================================================================== */
+.pagina-topo{background:var(--bege-2);padding:72px 0 64px;border-bottom:1px solid var(--linha)}
+.pagina-topo .wrap{width:auto;max-width:none;margin-inline:0;padding-left:64px;padding-right:64px}
+.pagina-topo p{color:var(--tinta-2);font-size:.97rem;max-width:60ch}
+
+/* o título de seção do mock: leve, sem o traço grosso embaixo */
+.secao-titulo{font-family:var(--slab);font-weight:200;color:var(--verde);letter-spacing:-.01em}
+.secao-titulo::after{width:64px;height:1px;background:var(--ouro);margin-top:1.4rem}
+
+/* fundos: bege no lugar do cinza-azulado e do branco puro */
+.servicos,.historia,.conteudo{background:var(--bege)}
+.numeros,.contato,.svc-cta-final,.pagina-topo{background:var(--bege-2)}
+.svc-grupo{border-bottom-color:var(--linha)}
+
+/* cartões: sem borda dura, com a mesma elevação suave da home */
+.card,.svc-item,.form-card,.post .capa{border:0}
+.card,.svc-item{background:var(--bege-2);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover,.svc-item:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(12,67,52,.45)}
+.svc-item h3,.card h3{font-family:var(--slab);font-weight:300;color:var(--verde)}
+.svc-item p,.card p,.historia p{color:var(--tinta-2)}
+.svc-grupo h2{font-family:var(--slab);font-weight:200;color:var(--verde)}
+.svc-grupo h2::after{height:1px;width:64px;background:var(--ouro);margin-top:1.1rem}
+
+/* as margens laterais do mock também aqui */
+.servicos .wrap,.numeros .wrap,.historia .wrap,.contato .wrap,.conteudo .wrap,
+.svc-grupo .wrap,.svc-cta-final .wrap{
+  width:auto;max-width:none;margin-inline:0;padding-left:64px;padding-right:64px}
+
+/* botão: o mesmo verde da home */
+.btn-verde{color:var(--verde);border-color:var(--verde)}
+.btn-verde:hover{background:var(--verde);color:#fff}
+
+@media (max-width:900px){
+  .pagina-topo .wrap,.servicos .wrap,.numeros .wrap,.historia .wrap,.contato .wrap,
+  .conteudo .wrap,.svc-grupo .wrap,.svc-cta-final .wrap{padding-left:24px;padding-right:24px}
+}

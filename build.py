@@ -83,7 +83,7 @@ def build_blog(layout):
     </div></div>
   </section>'''
         write(f"{po['slug']}.html",
-              render(layout, f'{po["title"]} — Vexus Capital', po["excerpt"],
+              render(layout, f'{po["title"]} · Vexus Capital', po["excerpt"],
                      "conteudo", "solid", art))
 
     # índice do blog
@@ -112,7 +112,7 @@ def build_blog(layout):
     </div></div>
   </section>'''
     write("conteudo.html",
-          render(layout, "Conteúdo — Vexus Capital",
+          render(layout, "Conteúdo · Vexus Capital",
                  "Análises e conteúdos sobre investimentos, câmbio e offshore.",
                  "conteudo", "solid", idx))
     return posts
