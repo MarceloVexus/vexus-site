@@ -136,16 +136,20 @@ def main():
     # responder. Ou seja: publicar com CNAME antes do DNS deixa o site inalcançável nos dois
     # endereços, que é o oposto de subir.
     #
-    # `VEXUS_DOMINIO_PROPRIO=1` liga o domínio quando o DNS estiver pronto (é o passo 5 do
-    # DNS-MIGRACAO.md). Sem a variável, o site vive no endereço do GitHub e dá para ver.
-    if os.environ.get("VEXUS_DOMINIO_PROPRIO") == "1":
-        open(os.path.join(OUT, "CNAME"), "w").write("vexuscapital.com.br\n")
-        print("Domínio: CNAME=vexuscapital.com.br + .nojekyll")
-    else:
+    # ⚠ VIROU AO CONTRÁRIO EM 26/08/2026, e a razão é uma cicatriz: o DNS FICOU PRONTO.
+    # Enquanto o domínio não resolvia, o padrão seguro era NÃO escrever o CNAME. Agora que
+    # `vexuscapital.com.br` está no ar, o padrão seguro é o oposto: rodar o build sem
+    # variável nenhuma (o jeito normal de rodar) apagava o CNAME e DERRUBAVA o domínio.
+    # Aconteceu de verdade, num commit que só mexia em CSS.
+    # Para voltar ao endereço do GitHub de propósito: VEXUS_SEM_DOMINIO=1.
+    if os.environ.get("VEXUS_SEM_DOMINIO") == "1":
         _cn = os.path.join(OUT, "CNAME")
         if os.path.exists(_cn):
             os.remove(_cn)
-        print("Domínio: endereço do GitHub (sem CNAME) — ligue com VEXUS_DOMINIO_PROPRIO=1")
+        print("Domínio: endereço do GitHub (sem CNAME) — pedido por VEXUS_SEM_DOMINIO=1")
+    else:
+        open(os.path.join(OUT, "CNAME"), "w").write("vexuscapital.com.br\n")
+        print("Domínio: CNAME=vexuscapital.com.br + .nojekyll")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print("OK — tudo resolvido." if not faltas else f"{faltas} arquivo(s) com pendência.")
 
