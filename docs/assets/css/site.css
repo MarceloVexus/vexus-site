@@ -437,3 +437,8 @@ a{color:inherit;text-decoration:none}
   .hero-v3{height:auto;min-height:560px}
   .hero-v3 .hero-txt{position:relative;bottom:auto;padding-top:140px;padding-bottom:64px}
 }
+
+/* Rodapé enxuto: só a marca, centrada e discreta (26/08/2026). */
+.rodape-limpo{padding:44px 0}
+.rodape-limpo .wrap{display:flex;justify-content:center}
+.rodape-limpo .rodape-logo{height:24px;width:auto;margin:0;opacity:.9}
